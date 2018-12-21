@@ -1,8 +1,6 @@
 def run():
-    from function.Player import create_player, display_all
-    for i in range(2):
-        create_player("player{}".format(i), "elf", "voleur")
-    display_all()
+    from function.GameSystem import game_start
+    game_start()
 
 
 if __name__ == "__main__":

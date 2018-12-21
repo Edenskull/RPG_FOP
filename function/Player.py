@@ -78,9 +78,29 @@ class Player:
         print("Name : {}\nClasse : {}\nRace : {}\nHP : {}\nMoney : {}\nLvl : {}\nExp : {}".format(self.name, self.classe, self.race, self.hp, self.money, self.lvl, self.exp))
 
 
-def create_player(name, classe, race):
-    player = Player(name, classe, race)
-    PLAYER.append(player)
+def create_players():
+    print("First of all let\'s see how many player will play.")
+    while True:
+        try:
+            nb_player = int(input("(1 to 4) > "))
+            if 0 < nb_player < 4:
+                break
+            else:
+                print("You can only use numbers between 1 and 4 ...")
+        except ValueError:
+            print("You can only use numbers between 1 and 4 ...")
+    print("Great then you will be {} players".format(nb_player))
+    print("Then we will create you charactere")
+    for i in range(1,nb_player + 1):
+        print("Player{} tell me your name".format(i))
+        name = input("> ")
+        print("Your classe")
+        classe = input("> ")
+        print("And your race")
+        race = input("> ")
+        print("Okay then {} will be from the {} faction and will act as a {}.".format(name, race, classe))
+        player = Player(name, classe, race)
+        PLAYER.append(player)
 
 
 def display_all():
