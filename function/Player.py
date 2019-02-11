@@ -1,108 +1,47 @@
-PLAYER = []
-
-
 class Player:
-    def __init__(self, name, classe, race):
-        self.name = name
-        self.classe = classe
-        self.race = race
-        self.money = 1500
-        self.hp = 50
-        self.lvl = 1
-        self.exp = 0
-        self.inventory = []
-        self.weapon = None
+	def __init__(self):
+		self.name = ""
+		self.money = 15
+		self.hp = 50
+		self.maxhp = 50
+		self.upgrade = None
 
-    def mod_money(self, amount):
-        self.money = self.money + amount
+	def set_player_name(self):
+		retry = None
+		while True:
+			if retry:
+				name = input("> ")
+			else:
+				name = input("Hero, I want to know you better. What is your name ?\n> ")
+			if name == "":
+				print("Please use a real name sir.")
+				retry = True
+				continue
+			self.name = name
+			print("Well, that's a pretty bad name there. But anyway, welcome {}.".format(name))
+			break
+		return True
 
-    def damage(self, amount):
-        self.hp = self.hp - amount
+	def set_player_upgrade(self, upgrade):
+		self.upgrade = upgrade
+		return True
 
-    def heal(self, amount):
-        self.hp = self.hp + amount
+	def heal(self, heal):
+		if self.hp + heal > self.maxhp:
+			heal = self.maxhp - self.hp
+			self.hp = self.maxhp
+		else:
+			self.hp += heal
+		print("You got healed for {} HP. You are now at {} HP.".format(heal, self.hp))
+		return True
 
-    def experience(self, amount):
-        print("{} gagne {} xp.".format(self.name, amount))
-        next_amount = self.exp + amount
-        if next_amount > self.lvl ** 2 + 1000:
-            print("{} passe au niveau suivant")
-            next_amount = next_amount - ((self.lvl ** 2) + 1000)
-            self.level_up()
-        self.exp = next_amount
-
-    def level_up(self):
-        self.lvl += 1
-        print("{} passe au niveau suivant : niveau {}".format(self.name, self.lvl))
-
-    def change_weapon(self, weapon):
-        self.add_inventory(self.weapon)
-        self.del_inventory(weapon)
-        self.weapon = weapon
-        print("L\'arme a bien été changée")
-
-    def add_inventory(self, thing):
-        self.inventory.append(thing)
-
-    def del_inventory(self, thing):
-        self.inventory.remove(thing)
-
-    def get_name(self):
-        return self.name
-
-    def get_classe(self):
-        return self.classe
-
-    def get_race(self):
-        return self.race
-
-    def get_money(self):
-        return self.money
-
-    def get_hp(self):
-        return self.hp
-
-    def get_lvl(self):
-        return self.lvl
-
-    def get_exp(self):
-        return self.exp
-
-    def get_inventory(self):
-        return self.inventory
-
-    def get_weapon(self):
-        return self.weapon
-
-    def to_string(self):
-        print("Name : {}\nClasse : {}\nRace : {}\nHP : {}\nMoney : {}\nLvl : {}\nExp : {}".format(self.name, self.classe, self.race, self.hp, self.money, self.lvl, self.exp))
-
-
-def create_players():
-    print("First of all let\'s see how many player will play.")
-    while True:
-        try:
-            nb_player = int(input("(1 to 4) > "))
-            if 0 < nb_player < 4:
-                break
-            else:
-                print("You can only use numbers between 1 and 4 ...")
-        except ValueError:
-            print("You can only use numbers between 1 and 4 ...")
-    print("Great then you will be {} players".format(nb_player))
-    print("Then we will create you charactere")
-    for i in range(1,nb_player + 1):
-        print("Player{} tell me your name".format(i))
-        name = input("> ")
-        print("Your classe")
-        classe = input("> ")
-        print("And your race")
-        race = input("> ")
-        print("Okay then {} will be from the {} faction and will act as a {}.".format(name, race, classe))
-        player = Player(name, classe, race)
-        PLAYER.append(player)
-
-
-def display_all():
-    for i in PLAYER:
-        print(i.to_string())
+	def damage(self, damage, ia):
+		from function.GameSystem import game_over
+		if self.hp - damage <= 0:
+			self.hp = 0
+			print("You took {} damage from {}.".format(damage, ia.name))
+			game_over()
+		else:
+			self.hp -= damage
+			print("You took {} damage from {}. You are now at {} HP.".format(damage, ia.name, self.hp))
+		return True

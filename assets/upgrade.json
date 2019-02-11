@@ -1,0 +1,40 @@
+{
+	"upgrades" : [
+		{
+			"id" : 1,
+			"name" : "Rush Boost",
+			"description" : "",
+			"modificateur": "turn",
+			"value" : 1,
+			"modulo" : 1,
+			"drop_stage" : 1,
+			"drop_rate" : 50
+		}, {
+			"id" : 2,
+			"name" : "Strength Boost",
+			"description" : "",
+			"modificateur" : "damage",
+			"value": 5,
+			"modulo" : 2,
+			"drop_stage" : 1,
+			"drop_rate" : 50
+		}, {
+			"id" : 3,
+			"name" : "Money Collector",
+			"description" : "",
+			"modificateur" : "money",
+			"value" : 10,
+			"modulo" : 5,
+			"drop_stage" : 1,
+			"drop_rate" : 50
+		}, {
+			"id" : 4,
+			"name" : "Heal Boost",
+			"description" : "",
+			"modificateur" : "heal",
+			"value" : 5,
+			"drop_stage" : 1,
+			"drop_rate" : 50
+		}
+	]
+}
