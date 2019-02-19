@@ -1,2 +1,22 @@
-venv/
+## Pycharm ##
 .idea/
+
+## CX_Freeze ##
+freeze.py
+build/
+ico.ico
+
+## Log Folder ##
+log/
+
+## Test File ##
+test.py
+
+## Config File ##
+config.json
+
+## Atom ##
+.sonarlint
+
+## Python ##
+*.pyc
