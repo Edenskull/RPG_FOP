@@ -1,6 +1,6 @@
 # RPG_FOP
 
-<img alt="Image Banner" src="https://raw.githubusercontent.com/Edenskull/RPG_FOP/master/.github/UI_DESIGN/Banner.jpg?sanitize=true" align="center"/>
+<img alt="Image Banner" src="https://raw.githubusercontent.com/Edenskull/RPG_FOP/master/.github/UI_ASSETS/Banner.jpg?sanitize=true" align="center"/>
 </br>
 <p align="center">
   <a href="https://github.com/Edenskull/RPG_FOP/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Edenskull/RPG_FOP.svg"/></a>
