@@ -1,6 +1,6 @@
-import function.GameSystem.properties as properties
+import plugins.GameSystem.properties as properties
 
-from function.GameSystem.upgrade import UPGRADES
+from plugins.GameSystem.upgrade import UPGRADES
 from random import choices
 
 
@@ -64,7 +64,7 @@ def prompt_player(items):
 
 
 def buy(upgrade, player):
-    player.argent -= upgrade['cost']
-    print("{} a {} {}".format(player.name, player.argent, properties.DEVISE))
+    player.money -= upgrade['cost']
+    print("{} a {} {}".format(player.name, player.money, properties.DEVISE))
     player.apply_upgrade(upgrade)
     return
