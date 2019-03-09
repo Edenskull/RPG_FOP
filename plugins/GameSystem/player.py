@@ -8,7 +8,6 @@ class Player:
         self.mp = self.mpmax
         self.atk = 1
         self.matk = 1
-        self.win = 0
         self.money = 100
         return
 
@@ -38,11 +37,6 @@ class Player:
                 amount,
                 upgrade['desc']
             ))
-        return
-
-    # Win counter module
-    def add_win(self):
-        self.win += 1
         return
 
 

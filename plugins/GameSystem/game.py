@@ -1,7 +1,7 @@
 import plugins.GameSystem.properties as properties
+import plugins.GameSystem.player as player
 
 from enum import Enum
-from plugins.GameSystem.player import create_player
 
 
 class EnumState(Enum):
@@ -22,10 +22,28 @@ class GameState:
         return
 
 
+class Dungeon:
+    def __init__(self):
+        self.DUNGEON_FLOOR = 1
+        return
+
+    def get_floor_ennemies(self):
+        if 1 < self.DUNGEON_FLOOR < 10:
+            return [1, 2]
+
+
 def game_start():
     global GAMESTATE
     GAMESTATE = GameState()
     print("Good morning traveller, I\'m here to force you to play with me to this RPG.")
-    create_player()
+    player.create_player()
     GAMESTATE.change_gamestate(EnumState.READY)
     return
+
+
+def enter_dungeon():
+    global GAMESTATE
+    GAMESTATE.change_gamestate(EnumState.RUN)
+    while GAMESTATE.GAMESTATE == EnumState.READY:
+        pass
+
