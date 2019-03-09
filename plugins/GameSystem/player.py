@@ -8,6 +8,7 @@ class Player:
         self.atk = 1
         self.matk = 1
         self.win = 0
+        self.money = 100
         return
 
     # Apply upgrade module
