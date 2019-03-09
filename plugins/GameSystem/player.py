@@ -1,4 +1,5 @@
 class Player:
+    # Constructor Player
     def __init__(self, name):
         self.name = name
         self.pvmax = 50
@@ -43,3 +44,10 @@ class Player:
     def add_win(self):
         self.win += 1
         return
+
+
+def create_player():
+    global PLAYER
+    name = input(" :: Then tell me your name : ")
+    PLAYER = Player(name)
+    return
