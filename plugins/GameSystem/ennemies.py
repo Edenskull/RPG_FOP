@@ -1,5 +1,6 @@
 ENNEMIES = [
     {
+        "id": 1,
         "name": "Zombievore",
         "pv": 10,
         "atk": 10,
@@ -7,6 +8,7 @@ ENNEMIES = [
         "enrage": 5
     },
     {
+        "id": 2,
         "name": "DR. Froze",
         "pv": 20,
         "atk": 5,
