@@ -1,13 +1,13 @@
-from function.PyLogger.pylogger import pylogger
-from function.GameSystem.shop import trigger_shop
-from function.GameSystem.player import create_player
+import plugins.GameSystem.game as gm
+import plugins.GameSystem.player as player
+
+from plugins.GameSystem.shop import trigger_shop
 
 
 def run():
-    player = create_player()
-    trigger_shop(player)
+    gm.game_start()
+    print(gm.GAMESTATE.GAMESTATE)
 
 
 if __name__ == "__main__":
-    # pylogger.info("Starting RPG_FOP Game")
     run()
